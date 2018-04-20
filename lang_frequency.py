@@ -17,8 +17,8 @@ def create_parser():
 
 def load_text_to_process(filepath):
     with open(filepath) as file:
-        data = file.read()
-        return data
+        multi_line_text = file.read()
+        return multi_line_text
 
 
 def split_text_into_words(multi_line_text):
