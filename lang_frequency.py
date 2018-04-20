@@ -15,7 +15,7 @@ def create_parser():
     return parser
 
 
-def load_data(filepath):
+def load_text_to_process(filepath):
     with open(filepath) as file:
         data = file.read()
         return data
@@ -43,7 +43,7 @@ if __name__ == '__main__':
     args = args_parser.parse_args()
 
     try:
-        multi_line_text = load_data(args.filepath)
+        multi_line_text = load_text_to_process(args.filepath)
     except FileNotFoundError:
         sys.exit("Error has occured while reading file")
 
