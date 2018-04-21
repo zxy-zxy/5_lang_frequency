@@ -21,12 +21,8 @@ def load_text_to_process(filepath):
         return text_to_process
 
 
-def cast_text_to_lower_case(text_to_process):
-    return str.lower(text_to_process)
-
-
 def split_text_into_words(text_to_split):
-    return re.findall("\w+", text_to_split)
+    return re.findall("\w+", text_to_split.lower())
 
 
 def get_most_frequent_words(words_list):
@@ -44,8 +40,7 @@ if __name__ == "__main__":
     except FileNotFoundError:
         sys.exit("Error has occured while reading file")
 
-    text_in_lower_case = cast_text_to_lower_case(text_to_process)
-    words_list = split_text_into_words(text_in_lower_case)
+    words_list = split_text_into_words(text_to_process)
     most_frequent_words = get_most_frequent_words(words_list)
 
     for order, (word, frequency) in enumerate(most_frequent_words):
